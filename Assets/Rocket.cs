@@ -6,6 +6,8 @@ public class Rocket : MonoBehaviour {
 
 	Rigidbody rigidBody;
 	AudioSource audioSource;
+	[SerializeField] float mainThrust = 100f;
+	[SerializeField] float rcsThrust = 100f;
 
 	// Use this for initialization
 	void Start () {
@@ -21,27 +23,48 @@ public class Rocket : MonoBehaviour {
 
 	private void ProcessInput()
 	{
-		if(Input.GetKey(KeyCode.Space))
+		Thrust ();
+		Rotate ();
+	}
+
+	void OnCollisionEnter(Collision collision)
+	{
+		switch(collision.gameObject.tag)
 		{
-			rigidBody.AddRelativeForce(Vector3.up);
-			if (!audioSource.isPlaying)
-			{
-				audioSource.Play();
+		case "Friendly":
+			break;
+		
+		}
+	}
+
+
+
+	private void Thrust()
+	{
+
+		if (Input.GetKey (KeyCode.Space)) {
+			rigidBody.AddRelativeForce (Vector3.up * mainThrust);
+			if (!audioSource.isPlaying) {
+				audioSource.Play ();
 			}
+		}
+		else {
+			audioSource.Stop ();
+		}
+	}
 
-		}
-		else
-		{
-			audioSource.Stop();
-		}
+	private void Rotate()
+	{
+		float rotationThisFrame = rcsThrust * Time.deltaTime;
 
-		if(Input.GetKey(KeyCode.A))
-		{
-			transform.Rotate(Vector3.forward);
+		rigidBody.freezeRotation = true; //take physics control
+
+		if (Input.GetKey(KeyCode.A)) {
+			transform.Rotate (Vector3.forward * rotationThisFrame);
 		}
-		else if (Input.GetKey(KeyCode.D))
-		{
-			transform.Rotate(-Vector3.forward);
+		else if (Input.GetKey(KeyCode.D)) {
+			transform.Rotate (-Vector3.forward * rotationThisFrame);
 		}
+		rigidBody.freezeRotation = false; // resume physics control 
 	}
 }
