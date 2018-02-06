@@ -1,0 +1,54 @@
+Initialize engine version: 5.6.3p2 (b3d7a6428558)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1070 (ID=0x1b81)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+    Driver:   23.21.13.9065
+Begin MonoManager ReloadAssembly
+Platform assembly: H:\game-development-projects\Unity Projects\Project Boost\projectBoost_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading H:\game-development-projects\Unity Projects\Project Boost\projectBoost_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: H:\game-development-projects\Unity Projects\Project Boost\projectBoost_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading H:\game-development-projects\Unity Projects\Project Boost\projectBoost_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: H:\game-development-projects\Unity Projects\Project Boost\projectBoost_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading H:\game-development-projects\Unity Projects\Project Boost\projectBoost_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: H:\game-development-projects\Unity Projects\Project Boost\projectBoost_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading H:\game-development-projects\Unity Projects\Project Boost\projectBoost_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.019 seconds
+Platform assembly: H:\game-development-projects\Unity Projects\Project Boost\projectBoost_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: H:\game-development-projects\Unity Projects\Project Boost\projectBoost_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 3840x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.986385 ms
+Setting up 4 worker threads for Enlighten.
+  Thread -> id: 4cdc -> priority: 1 
+  Thread -> id: 4c88 -> priority: 1 
+  Thread -> id: 51e0 -> priority: 1 
+  Thread -> id: 4170 -> priority: 1 
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.725045 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 483.
+Total: 0.883237 ms (FindLiveObjects: 0.054528 ms CreateObjectMapping: 0.047337 ms MarkObjects: 0.765791 ms  DeleteObjects: 0.013482 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.455100 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 483.
+Total: 0.225902 ms (FindLiveObjects: 0.046438 ms CreateObjectMapping: 0.026365 ms MarkObjects: 0.147705 ms  DeleteObjects: 0.004494 ms)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.538690 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 541.
+Total: 0.348141 ms (FindLiveObjects: 0.056625 ms CreateObjectMapping: 0.031458 ms MarkObjects: 0.246275 ms  DeleteObjects: 0.012283 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.428735 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 470.
+Total: 0.185156 ms (FindLiveObjects: 0.031758 ms CreateObjectMapping: 0.019474 ms MarkObjects: 0.118943 ms  DeleteObjects: 0.014081 ms)
+
