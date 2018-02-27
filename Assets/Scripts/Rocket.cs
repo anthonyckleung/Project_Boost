@@ -10,12 +10,14 @@ public class Rocket : MonoBehaviour {
 
 	[SerializeField] float mainThrust = 100f;
 	[SerializeField] float rcsThrust = 100f;
-	[SerializeField] float levelLoadDelay = 2f;
+	[SerializeField] float levelLoadDelay = 2f; //wait time to load next level
 
+	//Audio properties
 	[SerializeField] AudioClip mainEngineSound;
 	[SerializeField] AudioClip rocketDeathSound;
 	[SerializeField] AudioClip rocketSucceedSound;
 
+	//Particle system
 	[SerializeField] ParticleSystem mainEngineParticles;
 	[SerializeField] ParticleSystem deathParticles;
 	[SerializeField] ParticleSystem successParticles;
@@ -43,6 +45,7 @@ public class Rocket : MonoBehaviour {
 		RespondToDebugKeys();
 	}
 
+	//Method(s) for Update()
 	private void RespondToDebugKeys()
 	{
 		if (Input.GetKeyDown(KeyCode.L))
@@ -50,15 +53,26 @@ public class Rocket : MonoBehaviour {
 			LoadNextLevel();
 		}
 	}
+	
+	private void LoadNextLevel ()
+	{
+		int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+		int nextSceneIndex = currentSceneIndex + 1;
+		if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
+		{
+			nextSceneIndex = 0; //Loop back to start
+		}
+		SceneManager.LoadScene (nextSceneIndex);
+	}
 		
-	void OnCollisionEnter(Collision collision)
+	void OnCollisionEnter(Collision collision) //Determine how collisions are handled
 	{
 		if (isTransitioning)
 		{
 			return;
 		}
 
-		switch(collision.gameObject.tag)
+		switch(collision.gameObject.tag)//Different cases of collisions
 		{
 		case "Friendly":
 			break;
@@ -80,17 +94,6 @@ public class Rocket : MonoBehaviour {
 		}
 	}
 
-	private void LoadNextLevel ()
-	{
-		int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-		int nextSceneIndex = currentSceneIndex + 1;
-		if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
-		{
-			nextSceneIndex = 0; //Loop back to start
-		}
-		SceneManager.LoadScene (nextSceneIndex);
-	}
-
 	private void LoadFirstLevel ()
 	{
 		int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -107,7 +110,7 @@ public class Rocket : MonoBehaviour {
 		}
 	}
 
-	private void ApplyThrust ()
+	private void ApplyThrust () //Rocket thrust
 	{
 		rigidBody.AddRelativeForce (Vector3.up * mainThrust);
 		if (!audioSource.isPlaying) {
@@ -122,7 +125,7 @@ public class Rocket : MonoBehaviour {
 		mainEngineParticles.Stop ();
 	}
 
-	private void RespondToRotateInput()
+	private void RespondToRotateInput() //Rotate rocket
 	{
 		float rotationThisFrame = rcsThrust * Time.deltaTime; //stop rotation of rocket
 

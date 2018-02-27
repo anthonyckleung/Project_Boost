@@ -30,7 +30,7 @@ public class CameraController : MonoBehaviour {
 
 		transform.position = new Vector3(posX, posY, transform.position.z);
 
-		if (bounds)
+		if (bounds)//If camera is within bounds
 		{
 			transform.position = new Vector3(Mathf.Clamp(transform.position.x, minCameraPosition.x, maxCameraPosition.x),
 				Mathf.Clamp(transform.position.y, minCameraPosition.y, maxCameraPosition.y),
