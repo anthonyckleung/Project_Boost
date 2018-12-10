@@ -22,10 +22,7 @@ public class Rocket : MonoBehaviour {
 	[SerializeField] ParticleSystem deathParticles;
 	[SerializeField] ParticleSystem successParticles;
 
-
-//	enum State {Alive, Dying, Transcending} 
-//	State state = State.Alive;
-	bool isTransitioning = false;
+	bool isTransitioning = false; // For going from one level to the next
 
 	// Use this for initialization
 	void Start () 

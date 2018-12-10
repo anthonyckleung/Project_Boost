@@ -10,21 +10,19 @@ public class CameraController : MonoBehaviour {
 	public Vector3 minCameraPosition;
 	public Vector3 maxCameraPosition;
 
-
 	public bool bounds; 
 
 	public float smoothTimeX = 0.05f;
 	public float smoothTimeY = 0.05f;
 	// Use this for initialization
 	void Start () {
-		//note: transform.position refers to the transform of the game object
-		// In this case, the camera.
-
 		
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		// Note: transform.position refers to the transform of the game object
+		// In this case, it is the camera.
 		float posX = Mathf.SmoothDamp(transform.position.x, player.transform.position.x, ref velocity.x, smoothTimeX);
 		float posY = Mathf.SmoothDamp(transform.position.y, player.transform.position.y, ref velocity.y, smoothTimeY);
 
