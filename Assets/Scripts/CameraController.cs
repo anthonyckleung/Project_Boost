@@ -10,10 +10,9 @@ public class CameraController : MonoBehaviour {
 	public Vector3 minCameraPosition;
 	public Vector3 maxCameraPosition;
 
-	public bool bounds; 
-
 	public float smoothTimeX = 0.05f;
 	public float smoothTimeY = 0.05f;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -26,14 +25,13 @@ public class CameraController : MonoBehaviour {
 		float posX = Mathf.SmoothDamp(transform.position.x, player.transform.position.x, ref velocity.x, smoothTimeX);
 		float posY = Mathf.SmoothDamp(transform.position.y, player.transform.position.y, ref velocity.y, smoothTimeY);
 
+		// Move camera to new position
 		transform.position = new Vector3(posX, posY, transform.position.z);
 
-		if (bounds)//If camera is within bounds
-		{
-			transform.position = new Vector3(Mathf.Clamp(transform.position.x, minCameraPosition.x, maxCameraPosition.x),
+		// Ensures camera do not go out of bounds set by min/maxCameraPosition
+		transform.position = new Vector3(Mathf.Clamp(transform.position.x, minCameraPosition.x, maxCameraPosition.x),
 				Mathf.Clamp(transform.position.y, minCameraPosition.y, maxCameraPosition.y),
 				Mathf.Clamp(transform.position.z, minCameraPosition.z, maxCameraPosition.z));
-		}
 
 	}
 }
